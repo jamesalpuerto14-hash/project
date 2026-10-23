@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Cost and Profit Calculator.com</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <h1>Product Cost and Profit Calculator</h1>
+
+    <form id="product-form">
+      <div class="form-grid">
+        <label>
+          Item name
+          <input id="item-name" type="text" required>
+        </label>
+
+       <label>
+  Item type
+  <select id="item-type" required>
+    <option value="" disabled selected>Select a type</option>
+    <option value="Canned food">Canned food</option>
+    <option value="Instant food">Instant food</option>
+    <option value="Fruits">Fruits</option>
+    <option value="Vegetables">Vegetables</option>
+    <option value="Soap">Soap</option>
+    <option value="Other item">Other item</option>
+  </select>
+</label>
+
+        <label>
+          Price per pack (₱)
+          <input id="price-per-pack" type="number" min="1.00" step="1.00" required>
+        </label>
+
+        <label>
+          Number of packs
+          <input id="number-of-packs" type="number" min="1" step="1" required>
+        </label>
+
+        <label>
+          Items per pack
+          <input id="items-per-pack" type="number" min="1" step="1" required>
+        </label>
+
+        <label>
+          Markup (%)
+          <input id="markup" type="number" min="10" max="100" value="10" required>
+        </label>
+      </div>
+
+      <p class="total-cost">
+        Total purchase price: <strong id="total-cost-display">₱0.00</strong>
+      </p>
+
+      <button type="submit">Add Product</button>
+    </form>
+
+    <section id="live-result" class="preview hidden"></section>
+
+    <section class="summary">
+      <div class="summary-card">
+        <span>Total products</span>
+        <strong id="total-products">0</strong>
+      </div>
+      <div class="summary-card">
+        <span>Total cost</span>
+        <strong id="total-cost-value">₱0.00</strong>
+      </div>
+      <div class="summary-card">
+        <span>Total profit</span>
+        <strong id="total-profit-value">₱0.00</strong>
+      </div>
+      <div class="summary-card">
+        <span>Average ROI</span>
+        <strong id="average-roi">0.00%</strong>
+      </div>
+    </section>
+
+    <section class="products">
+      <h2>Saved Products</h2>
+      <input id="product-search" type="search" placeholder="Search products">
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Packs</th>
+              <th>Total items</th>
+              <th>Total cost</th>
+              <th>Cost/item</th>
+              <th>Selling price</th>
+              <th>Profit/item</th>
+              <th>Total profit</th>
+              <th>ROI</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="product-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
